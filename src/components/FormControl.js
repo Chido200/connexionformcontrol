@@ -1,16 +1,19 @@
 import React from 'react';
+import FormConnexion from "./FormConnexion"
 
 
 function Login(props){
     return (
-        <div>
-            <p>Je suis connecté</p>
-            <button onClick={props.onClick}>Connexion</button>
+        <div className='forms'>
+             <FormConnexion />
+              <button type="submit" className="btn btn-primary" onClick={props.onClick}>Connexion</button>
         </div>
+          
 
     )
     
 }
+
 
 function Logout (props){
     return <button onClick={props.onClick}>Deconnexion</button>
@@ -41,19 +44,18 @@ handLogout(e){
     )
 }
 render(){
-    var result 
+    let result 
     if(this.state.isConnect){
         result = <Login onClick={this.handLogin} />
     }
     else{
+       
         result = <Logout onClick ={this.handLogout} />
     }
-    
-
     return(
-        <div>
-        {result}
-        </div>
+        <>
+         {result}
+        </>
 
         )
 }
